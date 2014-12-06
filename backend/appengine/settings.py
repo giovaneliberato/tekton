@@ -10,8 +10,9 @@ from tekton.gae.middleware.redirect import RedirectMiddleware
 from tekton.gae.middleware.router_middleware import RouterMiddleware, ExecutionMiddleware
 from tekton.gae.middleware.webapp2_dependencies import Webapp2Dependencies
 from gaepermission.middleware import LoggedUserMiddleware, PermissionMiddleware
+from google.appengine.api import app_identity
 
-APP_URL = 'https://tekton-fullstack.appspot.com'
+APP_URL = app_identity.get_default_version_hostname()
 SENDER_EMAIL = 'renzon@gmail.com'
 DEFAULT_LOCALE = 'en_US'
 DEFAULT_TIMEZONE = 'US/Eastern'
